@@ -37,4 +37,8 @@ class User
             'password' => $this->password,
         ]);
     }
+    public function login(){
+        return (new Database('users'))->select("email = '{$this->email}' AND password = '{$this->password}'")
+                ->fetchObject(self::class);
+    }
 }
