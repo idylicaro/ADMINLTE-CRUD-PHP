@@ -66,10 +66,9 @@ class User
         ]);
     }
 
-    public function deleteUser($id)
+    public function delete($id)
     {
-        return (new Database('users'))->delete("id= {$id}")
-            ->fetchObject(self::class);
+        return (new Database('users'))->delete("id= {$id}");
     }
 
     public function login(){

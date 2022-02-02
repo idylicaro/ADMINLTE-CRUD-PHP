@@ -32,7 +32,7 @@
 <div class="wrapper">
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-1">
         <!-- Brand Logo -->
         <a href="index.php" class="brand-link">
             <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -54,7 +54,7 @@
             </div>
 
             <!-- Sidebar Menu -->
-            <nav class="mt-2">
+            <nav class="mt-2" style="display: flex">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
@@ -66,9 +66,9 @@
                             </p>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="app/Controllers/logout.php" class="nav-link">
-                            <i class="nav-icon fas fa-less-than-equal"></i>
+                            <i class="nav-icon fas fa-times"></i>
                             <p>
                                 Sair
                             </p>
@@ -89,6 +89,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Users</h1>
+                        <br>
+                        <a href="new.php" class="btn btn-info btn-sm">Novo usuário</a>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -166,13 +168,13 @@
                                         <input type="hidden" name="user_id"  value="<?= $user->id ?>" />
                                     </form>
 
-                                    <form action="delete.php" method="post">
+                                    <form action="app/Controllers/delete.php" method="post">
                                         <button class="btn btn-danger btn-sm" type="submit">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete
                                         </button>
-                                        <input type="hidden" name="user_id"  value="<?= $user->id ?>" />
+                                        <input type="hidden" name="user_id" value="<?= $user->id ?>" />
                                     </form>
 
                                 </div>

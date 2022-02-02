@@ -10,11 +10,6 @@ require __DIR__ . '/vendor/autoload.php';
 
 use App\Entity\User;
 
-if (!isset($_POST['user_id']) || empty($_POST['user_id'])) {
-    return;
-}
-//    echo $_POST['user_id'];
-$user = (new User())->findById($_POST['user_id']);
 
 ?>
 
@@ -105,25 +100,24 @@ $user = (new User())->findById($_POST['user_id']);
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Editar</h3>
+                    <h3 class="card-title">Criar novo</h3>
 
                 </div>
-                <form action="app/Controllers/edit.php" method="post">
-                    <input type="hidden" name="id"  value="<?= $user->id ?>" />
+                <form action="app/Controllers/new.php" method="post">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="inputName">Nome</label>
-                            <input type="text" class="form-control" name="name" value="<?= $user->name ?>">
+                            <input type="text" class="form-control" name="name" value="">
                         </div>
                         <div class="form-group">
                             <label for="inputDescription">Email</label>
-                            <input type="email" class="form-control" name="email" value="<?= $user->email ?>">
+                            <input type="email" class="form-control" name="email" value="">
                         </div>
                         <div class="form-group">
                             <label for="inputProjectLeader">Senha</label>
-                            <input type="password" class="form-control" name="password" value="<?= $user->password ?>">
+                            <input type="password" class="form-control" name="password" value="">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Salvar">
+                        <input type="submit" class="btn btn-primary" value="Criar usuario">
                     </div>
                 </form>
                 <!-- /.card-body -->
