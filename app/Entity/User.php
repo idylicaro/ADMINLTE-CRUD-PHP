@@ -32,9 +32,9 @@ class User
     public function save(){
         $db = new Database('users');
         $db->insert([
-            'name' => $this.name,
-            'email' => $this.email,
-            'password' => $this.password,
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
         ]);
     }
 }
