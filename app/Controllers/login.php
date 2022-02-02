@@ -15,7 +15,7 @@
             return;
         }
         $user->email = htmlspecialchars(stripslashes(filter_input( INPUT_POST,'email', FILTER_SANITIZE_EMAIL)));
-        if (!isset($_POST['password']) || empty($_POST['email']) and $_POST['password'] !== $_POST['password2']){
+        if (!isset($_POST['password'])){
             $_SESSION['error-register'] = 'Senha necessário';
             header('Location: ../../login.php');
             return;
@@ -29,9 +29,9 @@
             unset($_SESSION['error']);
             $_SESSION['success'] = "active";
 
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['name'] = $user['name'];
+            $_SESSION['id'] = $user->id;
+            $_SESSION['email'] = $user->email;
+            $_SESSION['name'] = $user->name;
             header('Location: ../../index.php');
         }else{
             $_SESSION['error'] = 'Email ou senha inválido!';

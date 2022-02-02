@@ -29,6 +29,7 @@
                 $this->connection = new PDO("mysql:host=" . self::HOST . ";dbname=" . self::NAME, self::USER, self::PASS);
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
+                die($e);
                 die('Erro ao se conectar com o banco de dados');
             }
         }
