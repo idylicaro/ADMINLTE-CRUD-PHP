@@ -26,7 +26,15 @@
 
         private function setConnection(){
             try {
-                $this->connection = new PDO("mysql:host=" . self::HOST . ";dbname=" . self::NAME, self::USER, self::PASS);
+                $dbenv = getenv('DATABASE_URL');
+                if ($dbenv){
+                    $parsed = parse_url($dbenv);
+                    $dbname = ltrim($parsed['path']. '/');
+                    $conn = new PDO("{$parsed['scheme']}:host={$parsed};$dbname={$dbname};charset=utf8mb4", $parsed['user'], $parsed['pass']);
+                }
+                else{
+                    $this->connection = new PDO("mysql:host=" . self::HOST . ";dbname=" . self::NAME, self::USER, self::PASS);
+                }
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 die($e);
